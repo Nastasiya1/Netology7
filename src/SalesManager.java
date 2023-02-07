@@ -15,4 +15,26 @@ public class SalesManager {
         }
         return max;
     }
+
+    public int trimmedMean() {
+        int min = sales[0];
+        int max = sales[0];
+        for (int value1 : sales) {
+            if (value1 < min) {
+                min = value1;
+            }
+        }
+        for (int value2 : sales) {
+            if (value2 > max){
+                max = value2;
+            }
+        }
+        int total = 0;
+        for (int value : sales){
+            if (value > min && value < max){
+                total += value;
+            }
+        }
+        return total/(sales.length - 2);
+    }
 }
